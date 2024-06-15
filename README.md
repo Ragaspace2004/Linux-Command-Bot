@@ -35,7 +35,7 @@ To install and run the Linux Command Bot, follow these steps:
 
 3. **Run the Bot**:
     ```bash
-    python3 linux_command_bot.py
+    python3 Linux_Command_Bot.py
     ```
 
 ## Usage
