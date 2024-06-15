@@ -16,7 +16,7 @@ import pyfiglet
 from rich.live import Live
 from rich.text import Text
 import google.generativeai as genai
-api_key="AIzaSyAbtzA18wXzXPLF-idGwtWSI_jZ5NgRsJQ"
+api_key="YOUR_API_KEY"
 genai.configure(api_key=api_key)
 
 # Create the model
