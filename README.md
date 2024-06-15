@@ -44,3 +44,47 @@ To install and run the Linux Command Bot, follow these steps:
 
 **Example User Input**:
 
+
+**Bot Output**:
+
+| Command | Short Description           | Syntax                     | Options                               | Category           |
+|---------|-----------------------------|----------------------------|---------------------------------------|--------------------|
+| mkdir   | Creates a new directory     | `mkdir [OPTION] DIRECTORY` | `-p, --parents` Create parent directories as needed. | File Management   |
+
+**Alternative Command**:
+
+| Command | Short Description         | Syntax                  | Options                              | Category           |
+|---------|---------------------------|-------------------------|--------------------------------------|--------------------|
+| install | Create directories via `install` command | `install -d [OPTION] DIRECTORY` | `-v` Verbose mode. | File Management   |
+
+### Syntax Only
+
+**Example User Input**:
+
+**Bot Output**:
+
+### Options Only
+
+**Example User Input**:
+
+**Bot Output**:
+
+| Option | Description                            |
+|--------|----------------------------------------|
+| `-p`   | Create parent directories as needed.   |
+| `-v`   | Verbose mode.                          |
+| `-m`   | Set file mode (as in chmod), not a=rwx - umask. |
+
+### Error Correction
+
+**Example User Input**:
+**Bot Output**
+*Error: Invalid option -z*
+*Did you mean:
+mkdir -p newfolder*
+
+## Contribution
+
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request. For major changes, please open an issue to discuss what you would like to change.
+
+
