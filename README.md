@@ -17,6 +17,7 @@
 - **Google AI Studio**
 - **Python** (with libraries like `rich` and `pyfiglet` for CLI interface)
 - **GitHub** (for version control and public repository)
+- **Linux Man Pages** (for tuning the Gemini Model with exact details)
 
 ## Installation
 
@@ -31,6 +32,7 @@ To install and run the Linux Command Bot, follow these steps:
 2. **Install Dependencies**:
     ```bash
     pip install google-generativeai
+    pip install rich pyfiglet
     ```
 
 3. **Run the Bot**:
