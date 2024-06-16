@@ -45,6 +45,7 @@ To install and run the Linux Command Bot, follow these steps:
 ### Command Lookup
 
 **Example User Input**:```scan all the ports running on my network```
+
 **Bot Output**:
 ```
 Command: nmap
