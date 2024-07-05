@@ -6,18 +6,20 @@ $ pip install google-generativeai
 See the getting started guide for more information:
 https://ai.google.dev/gemini-api/docs/get-started/python
 """
-
+import typer
+from rich.console import Console
+from rich.panel import Panel
+from rich.progress import Progress ,BarColumn, TimeElapsedColumn
 import os
 import time
-from rich.console import Console
-from rich.progress import Progress
 from rich.table import Table
 import pyfiglet
 from rich.live import Live
 from rich.text import Text
 import google.generativeai as genai
-api_key="YOUR_API_KEY"
+api_key="AIzaSyAs6m4nG6HcR0YjR-u8D5dAkn9nwuesfgI"
 genai.configure(api_key=api_key)
+
 
 # Create the model
 # See https://ai.google.dev/api/python/google/generativeai/GenerativeModel
@@ -705,6 +707,9 @@ chat_session = model.start_chat(
   ]
 )
 
+app=typer.Typer()
+console=Console()
+
 #cli
 console=Console()
 def display_animated_project_name(project_name, duration=5):
@@ -719,22 +724,37 @@ def display_animated_project_name(project_name, duration=5):
                 colorful_text = Text(rendered_text, style=f"bold {color}")
                 live.update(colorful_text)
                 time.sleep(0.2)
+
 def show_progress(task_description, total_steps=10):
-    with Progress() as progress:
-        task = progress.add_task(f"[cyan]{user_input}", total=total_steps)
+    with Progress(
+        "[progress.description]{task.description}",
+        BarColumn(),  # Use BarColumn() directly here
+        "[progress.percentage]{task.percentage:>3.1f}%",
+        "•",
+        TimeElapsedColumn(),
+        console=console
+    ) as progress:
+        task = progress.add_task(f"[cyan]{task_description}", total=total_steps)
         for step in range(total_steps):
-            time.sleep(0.5)  # Simulating a task
+            time.sleep(0.2)  # Simulating a task
             progress.update(task, advance=1)
 
 
-# Main loop
-if __name__ == "__main__":
+@app.command()
+def interactive():
+    """
+    Start an interactive chat session with the chatbot.
+    """
+    console.clear()
+    console.rule("[bold green]Linux CommandBot[/bold green]")
     project_name = "Linux CommandBot"
     display_animated_project_name(project_name)
 
     prompt_text = "CommandBot >>"
     formatted_prompt = f"[bold green]{prompt_text}[/bold green]"
 
+    console.print("[bold yellow]Starting chat session. Type 'exit' to end the session.[/bold yellow]")
+    
     while True:
         console.print(formatted_prompt, style="bold bright_yellow", end=" ")
         user_input = console.input()
@@ -745,6 +765,15 @@ if __name__ == "__main__":
 
         console.print(f"[bold yellow]Processing input: {user_input}[/bold yellow]")
         show_progress("Processing input")
+
         response = chat_session.send_message(user_input)
-        print(response.text)
-       
+
+         # Format bot's response
+     
+        response_panel = Panel(f"{response.text}", title="Bot Response", border_style="magenta")
+        console.print(response_panel)
+
+# Main loop
+if __name__ == "__main__":
+    app()
+    
