@@ -15,7 +15,8 @@
 
 - **Gemini API**
 - **Google AI Studio**
-- **Python** (with libraries like `rich` and `pyfiglet` for CLI interface)
+- **Python** 
+- **Typer CLI** (with libraries like `rich` and `pyfiglet` for attractive CLI interface)
 - **GitHub** (for version control and public repository)
 - **Linux Man Pages** (for tuning the Gemini Model with exact details)
 
