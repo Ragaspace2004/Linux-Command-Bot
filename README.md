@@ -34,6 +34,7 @@ To install and run the Linux Command Bot, follow these steps:
     ```bash
     pip install google-generativeai
     pip install rich pyfiglet
+    pip install typer
     ```
 
 3. **Run the Bot**:
