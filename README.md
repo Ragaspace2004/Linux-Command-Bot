@@ -36,8 +36,12 @@ To install and run the Linux Command Bot, follow these steps:
     pip install rich pyfiglet
     pip install typer
     ```
+3.**Open the Linux_Command_Bot.py and replace the API_KEY with your Gemini API KEY**
+    ```bash
+    nano Linux_Command_Bot.py
+    ```
 
-3. **Run the Bot**:
+4. **Run the Bot**:
     ```bash
     python3 Linux_Command_Bot.py
     ```
